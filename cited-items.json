@@ -1,0 +1,44 @@
+[
+	{
+		"id": "BoothCraftResearch2024",
+		"type": "book",
+		"collection-title": "Chicago Guides to Writing, Editing, and Publishing",
+		"edition": "5",
+		"event-place": "Chicago",
+		"ISBN": "978-0-226-82666-0",
+		"language": "en",
+		"publisher": "The University of Chicago Press",
+		"publisher-place": "Chicago",
+		"source": "luc.primo.exlibrisgroup.com",
+		"title": "The craft of research",
+		"author": [
+			{
+				"family": "Booth",
+				"given": "Wayne C."
+			},
+			{
+				"family": "Williams",
+				"given": "Joseph M."
+			},
+			{
+				"family": "Colomb",
+				"given": "Gregory G."
+			},
+			{
+				"family": "FitzGerald",
+				"given": "William T."
+			},
+			{
+				"family": "Bizup",
+				"given": "Joseph"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2024"
+				]
+			]
+		}
+	}
+]

@@ -1,0 +1,51 @@
+name: Deploy pdf
+
+on:
+  push:
+    branches: main
+    tags:
+      - v*
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Working directory check
+        run: |
+          pwd
+          ls
+
+      - name: Install Pandoc
+        uses: r-lib/actions/setup-pandoc@v2
+
+      - name: Install LaTeX
+        run: sudo apt-get update && sudo apt-get install -y texlive
+
+      - name: Verify dependencies
+        run: |
+          pandoc --version
+          pdflatex --version
+
+      - name: Build
+        run: >-
+          pandoc
+          --citeproc
+          --metadata-file=./config/pandoc-defaults.yaml
+          --number-sections
+          --toc
+          essay-revision-tutorial.md -o essay-revision-tutorial.pdf
+
+      - name: Verify build
+        run: ls essay-revision-tutorial.pdf
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: |
+            essay-revision-tutorial.pdf
