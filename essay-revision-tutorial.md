@@ -12,6 +12,7 @@ abstract: |
   add section headings and other structural elements;
   and replace [hard-coded](https://en.wikipedia.org/wiki/Hard_coding) citations with citation keys.
   Revisions of argument and style are guided by @BoothCraftResearch2024.
+  This work is backed up by pushing our commits to a remote repository on GitHub.
 ---
 
 \newpage
@@ -33,10 +34,8 @@ Other prerequisites:
 - An essay written in a word-processing program (such as Microsoft Word, Google Docs, or LibreOffice), with at least one cited source.
 - Full bibliographic details for cited items, entered in your Zotero library.
   See Zotero's documentation on [Additing Items to Zotero](https://www.zotero.org/support/adding_items_to_zotero).
-
-<!--
-A [GitHub account](https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github) is also required: choose the free option.
--->
+- A [GitHub account](https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github).
+  Choose the free option.
 
 # Create Your Markdown File and Git Repository
 
@@ -161,7 +160,28 @@ Put the abstract in the YAML metadata block at the top of the file, like this:
 
 (@) Commit the changes as in (@commit), supplying an informative commit message.
 
-# Add Citation Keys
+# Create a Remote Back-up on GitHub
+
+(@) Create a remote repository on GitHub and push your local history (that is, the changes you committed in previous steps) to this new remote repository.
+
+    If you use GitHub Desktop, follow the instructions for [Publishing Your Repository to GitHub with GitHub Desktop](https://docs.github.com/en/desktop/overview/creating-your-first-repository-using-github-desktop#part-4-publishing-your-repository-to-github).
+    If you use the terminal, follow the instructions for [Importing a Git Repository with the Command Line](https://docs.github.com/en/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github#importing-a-git-repository-with-the-command-line).
+    Either way, you will be prompted to choose whether to make your files public (that is, visible to anyone on the web) or keep them private (that is, visible only to you and invited collaborators).
+    If you keep your repository private, I will ask you to add me as a collaborator, so that I can review your work.
+    See GitHub's documentation on [Inviting a Team or Person](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository#inviting-a-team-or-person).
+    You can also [change the visibility of your repository](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility) later.
+
+    Your GitHub repository provides a remote back-up for your work and enables you to share your work and collaborate, if desired.
+    But Git does not sync automatically.
+    Instead, it acts on your command.
+    The underlying principle is *deliberate intentionality*.
+
+    GitHub Desktop will display a button to "Push Origin": see step 6 in [Making, Committing, and Pushing Changes](https://docs.github.com/en/desktop/overview/creating-your-first-repository-using-github-desktop#part-5-making-committing-and-pushing-changes).
+    If you use the terminal, the command `git status` will report whether you have local commits that are not yet pushed to your remote repository.
+    The command `git push` will send those commits to the remote repository.
+    If Git needs additional information, the output of `git push` will prompt you to provide it.
+
+# Revise Citations and Quotations
 
 (@) In Zotero, create a new folder within your library.
 Move your cited items into the new folder.
@@ -186,6 +206,21 @@ Citation keys are given in the file `cited-items.json`, which you exported from 
 (@) Delete the list of works cited from the end of your essay (but keep the section heading added in (@headings)).
 
 (@) Commit the changes.
+A good commit message might be "Replace citations with citation keys."
+
+(@) Review each of your quotations.
+Verify that you have an appropriate citation for each, and verify that each quotation conforms to one of the standard formats, as described by @BoothCraftResearch2024 [section 12.4]:
+"dropped-in" quotations should be introduced by a short phrase,
+and quoted words and phrases should be woven into the grammar of your own sentence.
+Block quotations should be coded with Markdown's syntax for block quotations (`>`).
+Revise as necessary.
+
+(@) Read @BoothCraftResearch2024 [section 12.6] and verify that each quotation is followed by appropriate commentary and explanation.
+The authors advise that "The length of your explanation should be proportional to the length of your quotation."
+Revise as necessary.
+
+(@) Commit the changes and push them to GitHub.
+A good commit message might be "Revise quoting sentences and discussion of quotes."
 
 # Version Information {.unnumbered}
 
