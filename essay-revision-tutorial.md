@@ -36,6 +36,8 @@ Other prerequisites:
   See Zotero's documentation on [Additing Items to Zotero](https://www.zotero.org/support/adding_items_to_zotero).
 - A [GitHub account](https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github).
   Choose the free option.
+- A basic grasp of Markdown syntax.
+  See the [Markdown Cheat Sheet](https://www.markdownguide.org/cheat-sheet/) and documentation of [Pandoc's Markdown](https://pandoc.org/MANUAL.html#pandocs-markdown).
 
 # Create Your Markdown File and Git Repository
 
@@ -58,7 +60,7 @@ In the directory that contains your DOCX files, run the command
     Choose a DESTINATION filename with no spaces.
     Hyphens and underscores are fine.
 
-(@) Create a new Git repository on your computer.
+(@init) Create a new Git repository on your computer.
 If you use GitHub Desktop, follow the instructions for [Creating a New Repository with GitHub Desktop](https://docs.github.com/en/desktop/overview/creating-your-first-repository-using-github-desktop#creating-a-new-repository).
 If you use a bash terminal, use `mkdir` then enter the new directory and run `git init`.
 
@@ -137,7 +139,7 @@ At minimum, enter the section heading
 
     before the bibliography (or lists of works cited).
 
-(@) Identify your "point sentence" (or claim or thesis).
+(@point) Identify your "point sentence" (or claim or thesis).
 Read your introduction and locate the sentence in which you state your claim.
 Move the cursor to the end of that sentence, then type `<!--My claim-->`.
 This text is just for you: it won't render when you convert your Markdown to a "publication format" such as DOCX or PDF.
@@ -200,7 +202,7 @@ Save the file as `cited-items.json` (or something similar), within the same dire
     > bibliography: cited-items.json
     > ```
 
-(@) Replace all [hard-coded](https://en.wikipedia.org/wiki/Hard_coding) citations with citation keys, as described in the Pandoc Manual, under [Citation Syntax](https://pandoc.org/MANUAL.html#citation-syntax).
+(@keys) Replace all [hard-coded](https://en.wikipedia.org/wiki/Hard_coding) citations with citation keys, as described in the Pandoc Manual, under [Citation Syntax](https://pandoc.org/MANUAL.html#citation-syntax).
 Citation keys are given in the file `cited-items.json`, which you exported from Zotero in (@csljson).
 
 (@) Delete the list of works cited from the end of your essay (but keep the section heading added in (@headings)).
@@ -221,6 +223,79 @@ Revise as necessary.
 
 (@) Commit the changes and push them to GitHub.
 A good commit message might be "Revise quoting sentences and discussion of quotes."
+
+# Check Your Work by Generating a DOCX File with Pandoc
+
+(@) Open the terminal, following the instructions in [Getting Started with Pandoc], Step 2, then navigate to the directory (a.k.a. folder) containing your Git repository, created in (@init).
+
+(@test) Use Pandoc to create a DOCX file from your Markdown file and JSON bibliography.
+In the directory that contains your Git repository, run the command
+
+    > ```{.bash}
+    > pandoc FILENAME.md --citeproc -o test.docx
+    > ```
+
+    Replace FILENAME.md with the name of your Markdown file.
+    You can replace `test.docx` with any valid DOCX file name. I often use `temp.docx`.
+
+    If the command is successful, a new DOCX file will show up in GitHub Desktop (or within the output of `git status` on the command line).
+    Check whether the file exists, but do not commit it to your repository.
+    We treat DOCX files as ephemeral: the record of truth is provided by your plain text files.
+
+(@bugfix) Open the DOCX file with a word processing application such as Microsoft Word.
+Inspect the file.
+Does it look as you expected?
+
+    Review the changes in your revision history. How does each one show up in the DOCX file?
+    Pay particular attention to the citation keys entered in (@keys).
+
+    Where you find a formatting error, do not revise or edit the DOCX file (which is ephemeral).
+    Instead, edit the Markdown.
+    Consult the documentation for [Pandoc's Markdown](https://pandoc.org/MANUAL.html#pandocs-markdown) as necessary.
+
+    If you find an error in your bibliographic data, edit this in Zotero, then regenerate the JSON file, following the instructions in (@csljson)
+
+(@) Repeat (@test) and (@bugfix) as necessary.
+
+(@) Commit the changes to your Markdown file (and JSON file, if necessary), but exclude the DOCX file.
+If you use GitHub Desktop, uncheck the box beside the DOCX file.
+A good commit message is "Fix formatting bugs."
+
+# Create a `.gitignore` File
+
+(@) Create a `.gitignore` file to ignore DOCX files.
+Open a text editor and create a new file in your Git repository.
+Name the file `.gitignore` (this name must be exact).
+Notice the leading period.
+
+(@) On the first line of your `.gitignore` file, type `*.docx*`.
+This instructs Git to ignore all DOCX files.
+Save the `.gitignore` file.
+For more on `.gitignore` files see GitHub's documentation on [Ignoring Files](https://docs.github.com/en/get-started/git-basics/ignoring-files).
+
+(@) In GitHub Desktop (or on the command line), verify that the DOCX file no longer appears in the list of files to be committed to your repository.
+The DOCX file still exists, but its presence is now concealed from Git.
+
+(@) Commit the `.gitignore` file to your repository.
+A good commit message is "Ignore DOCX files."
+
+# Revise the Introduction and Conclusion
+
+(@) Read @BoothCraftResearch2024 [sections 14.1--4] and verify that your introduction agrees with the "common structure of introductions" recommended there.
+Revise as necessary.
+Move the cursor to the end of the sentence that completes the statement of *context*, then type `<!--Context of my argument-->`.
+Next, move the cursor to the end of the sentence that completes the statement of the *problem*, then type `<!--Problem addressed in my argument-->`.
+Your *claim* (or "statement of response") was already identified above, in (@point).
+
+(@) Read @BoothCraftResearch2024 [sections 14.6], on "Finding Your First Few Words."
+Verify that the opening words of your essay follow the advice given there.
+Revise as necessary.
+
+(@) Read @BoothCraftResearch2024 [section 14.7], on "Writing Your Conclusion."
+If your conclusion does not yet employ the strategies recommended in this section, revise it.
+
+(@) Commit your changes and push them to GitHub.
+A good commit message might be "Revise introduction and conclusion."
 
 # Version Information {.unnumbered}
 
