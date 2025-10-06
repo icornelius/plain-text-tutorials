@@ -4,4 +4,5 @@ geometry: margin=1in
 colorlinks: True
 link-citations: True
 linkcolor: blue
+toccolor: black
 ---
