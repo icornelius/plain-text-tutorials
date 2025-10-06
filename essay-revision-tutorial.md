@@ -24,6 +24,7 @@ abstract: |
 The following software is required:
 
 - [Zotero](https://www.zotero.org/download/)
+- [Better BibTeX for Zotero](https://retorque.re/zotero-better-bibtex/installation/index.html), a plugin that improves Zotero's generation of citation keys and export of bibliographic data
 - [A text editor with support for Markdown](https://alternativeto.net/category/productivity/text-editor/?feature=markdown-support&license=free)
 - [Pandoc](https://pandoc.org/installing.html)
 - [GitHub Desktop](https://desktop.github.com/download/) or the [Git command line application](https://git-scm.com/book/en/v2/Getting-Started-The-Command-Line)
@@ -189,10 +190,8 @@ Put the abstract in the YAML metadata block at the top of the file, like this:
 Move your cited items into the new folder.
 
 (@csljson) Right-click the folder containing your cited items, then select "Export Collection."
-In the pop-up window, select "CSL JSON."
-Save the file as `cited-items.json` (or something similar), within the same directory that holds your Markdown file.[^Better]
-
-[^Better]: If you adopt plain text workflows for your future writing, you will want [Better BibTeX for Zotero](https://retorque.re/zotero-better-bibtex/installation/index.html), a plugin that improves Zotero's generation of citation keys and export of bibliographic data.
+In the pop-up window, select "Better CSL JSON" and check the box for "Keep updated."
+Save the file as `cited-items.json` (or something similar), within the same directory that holds your Markdown file.
 
 (@) Commit `cited-items.json` to your repository as in (@commit).
 
@@ -253,7 +252,8 @@ Does it look as you expected?
     Instead, edit the Markdown.
     Consult the documentation for [Pandoc's Markdown](https://pandoc.org/MANUAL.html#pandocs-markdown) as necessary.
 
-    If you find an error in your bibliographic data, edit this in Zotero, then regenerate the JSON file, following the instructions in (@csljson)
+    If you find an error in your bibliographic data, edit this in Zotero.
+    If you checked the box "Keep updated" in (@csljson), Zotero will automatically regenerate the JSON file containing your machine-readable bibliographic data.
 
 (@) Repeat (@test) and (@bugfix) as necessary.
 
