@@ -40,5 +40,23 @@
 				]
 			]
 		}
+	},
+	{
+		"id": "ChicagoManualStyle2024",
+		"type": "book",
+		"edition": "18",
+		"event-place": "Chicago",
+		"language": "en",
+		"publisher": "University of Chicago Press",
+		"publisher-place": "Chicago",
+		"title": "The Chicago manual of style",
+		"URL": "www.chicagomanualofstyle.org",
+		"issued": {
+			"date-parts": [
+				[
+					"2024"
+				]
+			]
+		}
 	}
 ]
