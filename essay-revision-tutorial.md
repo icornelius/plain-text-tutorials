@@ -13,6 +13,7 @@ abstract: |
   and replace [hard-coded](https://en.wikipedia.org/wiki/Hard_coding) citations with citation keys.
   Revisions of argument and style are guided by @BoothCraftResearch2024.
   This work is backed up by pushing our commits to a remote repository on GitHub.
+  In the final step, we write an overview of the revision process, framed as a demonstration of skills.
 ---
 
 \newpage
@@ -23,11 +24,11 @@ abstract: |
 
 The following software is required:
 
-- [Zotero](https://www.zotero.org/download/)
+- [Zotero](https://www.zotero.org/download/), a reference-management system
 - [Better BibTeX for Zotero](https://retorque.re/zotero-better-bibtex/installation/index.html), a plugin that improves Zotero's generation of citation keys and export of bibliographic data
 - [A text editor with support for Markdown](https://alternativeto.net/category/productivity/text-editor/?feature=markdown-support&license=free)
-- [Pandoc](https://pandoc.org/installing.html)
-- [GitHub Desktop](https://desktop.github.com/download/) or the [Git command line application](https://git-scm.com/book/en/v2/Getting-Started-The-Command-Line)
+- [Pandoc](https://pandoc.org/installing.html), a command-line tool to convert documents from one format to another
+- [GitHub Desktop](https://desktop.github.com/download/) or the [Git command line application](https://git-scm.com/book/en/v2/Getting-Started-The-Command-Line), to create and manage file histories
 
 All are available as free downloads.
 Other prerequisites:
@@ -223,7 +224,7 @@ Revise as necessary.
 (@) Commit the changes and push them to GitHub.
 A good commit message might be "Revise quoting sentences and discussion of quotes."
 
-# Check Your Work by Generating a DOCX File with Pandoc
+# Check Your Work by Generating a DOCX File with Pandoc {#check-your-work}
 
 (@) Open the terminal, following the instructions in [Getting Started with Pandoc], Step 2, then navigate to the directory (a.k.a. folder) containing your Git repository, created in (@init).
 
@@ -247,6 +248,8 @@ Does it look as you expected?
 
     Review the changes in your revision history. How does each one show up in the DOCX file?
     Pay particular attention to the citation keys entered in (@keys).
+    These have been rendered in Chicago author-date format.
+    (The citation style may be changed at a later stage: see the section [Update the Citation Style].)
 
     Where you find a formatting error, do not revise or edit the DOCX file (which is ephemeral).
     Instead, edit the Markdown.
@@ -294,8 +297,88 @@ Revise as necessary.
 (@) Read @BoothCraftResearch2024 [section 14.7], on "Writing Your Conclusion."
 If your conclusion does not yet employ the strategies recommended in this section, revise it.
 
-(@) Commit your changes and push them to GitHub.
+(@) Review the changes you have made in the past three steps, then commit the changes and push them to GitHub.
 A good commit message might be "Revise introduction and conclusion."
+
+# Revise a Sample Body Paragraph: Clarity and Flow {#clarity-and-flow}
+
+(@firsttwo) Read @BoothCraftResearch2024 [section 15.2], on "The First Two Principles of Clear Writing."
+Attend especially to sec. 15.2.4 ("Diagnosis and Revision") and 15.2.7 ("Creating Main Characters").
+Select *one* body paragraph in your essay, run the diagnostic tests described in sec. 15.2.4, and revise accordingly.
+
+(@) Read @BoothCraftResearch2024 [section 15.3], on the principle "Old Before New."
+Re-read the paragraph you selected for revision in (@firsttwo).
+Run the diagnostic tests for the principle "Old Before New" and revise accordingly.
+
+(@) Read @BoothCraftResearch2024 [section 15.5], on the principle "Complexity Last."
+Re-read the paragraph you selected for revision in (@firsttwo).
+Revise according to the principle "Complexity Last."
+
+(@) Review the changes you have made in the past three steps, then commit the changes and push them to GitHub.
+A good commit message might be "Revise a sample paragraph for clarity and flow."
+
+# Update the Citation Style
+
+By default, Pandoc renders citations in Chicago's author-date system.
+Another citation style can be specified as described in [Specifying a Citation Style](https://pandoc.org/MANUAL.html#specifying-a-citation-style).
+This section walks you through the steps.
+
+(@) Read @BoothCraftResearch2024 [section 12.8] or @ChicagoManualStyle2024 [sections 13.2--3] and decide whether Chicago's author-date style is appropriate for your essay.
+If yes, skip the next steps in this section.
+
+(@) Find the desired style in the GitHub repository [`citation-style-language/styles`](https://github.com/citation-style-language/styles).
+You are probably looking for
+[APA](https://github.com/citation-style-language/styles/blob/b61592ea58b94d790fa36708048153989840552c/apa.csl),
+[Chicago notes-and-bibliography](https://github.com/citation-style-language/styles/blob/b61592ea58b94d790fa36708048153989840552c/chicago-notes-bibliography.csl),
+or
+[MLA](https://github.com/citation-style-language/styles/blob/b61592ea58b94d790fa36708048153989840552c/modern-language-association.csl).
+
+(@) Download the file.
+Navigate to one of the style pages linked in the previous step.
+Click the three horizontal dots near the top right corner of the page.
+This opens a menu for "More file actions."
+Select "Download."
+
+(@) Move the downloaded file into your Git repository.
+
+(@) In your text editor, add the following line to the metadata block at the top of your Markdown file:
+
+    > ```{.yaml}
+    > csl: STYLE-NAME.csl
+    > ```
+
+    Replace `STYLE-NAME.csl` with the name of the CSL file you downloaded in the previous step.
+    For additional discussion see [Specifying a Citation Style](https://pandoc.org/MANUAL.html#specifying-a-citation-style).
+
+(@) Re-run the steps in the section [Check Your Work](#check-your-work)
+
+(@) Commit the changes and push them to GitHub.
+
+# Last Things
+
+(@) Read your essay aloud, start to finish, at medium pace and volume.
+This should be done when your roommate is away.
+I call it "the test of declamation."
+When you get hung up on a sentence, pause and improve its structure, returning to steps in the section [Revise a Sample Body Paragraph](#clarity-and-flow).
+
+(@) Check spellings.
+Generate a DOCX file as described in (@test).
+Using the spell-check feature in Microsoft Word (or your preferred word-processing program), review the suggested corrections to spelling.
+Correct errors in your Markdown file, using your text editor.
+Alternatively, if you use the bash terminal, you may check spellings with the utility `aspell`.
+
+(@) Review the changes, then commit the changes and push them to GitHub.
+A good commit message might be "Revise style and fix spelling errors."
+
+# Create a README for Your Repository
+
+(@) Using a text editor, create a new file with the name `README.md`.
+In this file, write a brief overview of the files in your repository.
+Identify the context in which you first wrote your essay and describe the tools and techniques used in revision of it.
+Write for a potential employer: present your work as a professional portfolio, demonstrating *what you can do*.
+
+(@) Commit the file to your repository and push it to GitHub.
+A good commit message is "Create REAMDE.md."
 
 # Version Information {.unnumbered}
 
